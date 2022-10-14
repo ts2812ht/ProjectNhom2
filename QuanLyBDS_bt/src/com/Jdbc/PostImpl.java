@@ -176,6 +176,36 @@ public class PostImpl {
 		}
 		return list;
 	}
+	public List<PostDTO> getAllPostbyUserId(int id) {
+		List<PostDTO> list = new ArrayList<>();
+		String query = "select * from post where user_id = ?";
+		try {
+			conn = new Jdbc.DBUtil().getSqlConn();
+			ps = conn.prepareStatement(query);
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(new PostDTO(
+						rs.getInt("id"),
+						rs.getString("title"),
+						rs.getString("description"),
+						rs.getInt("price"),
+						rs.getInt("area"),
+						rs.getInt("count_view"),
+						rs.getString("address"),
+						rs.getString("latlng"),
+						rs.getString("images"),
+						rs.getString("user_id"),
+						rs.getString("category_id"),
+						rs.getString("district_id"),
+						rs.getString("approve"),
+						rs.getString("create_at")));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return list;
+	}
 //	private int id;
 //	private String title;
 //	private String description;
@@ -192,7 +222,7 @@ public class PostImpl {
 //	private String create_at;
 //	public static void main(String[] args) {
 //		PostImpl dao = new PostImpl();
-//		List<PostDTO> list = dao.getAllPost();
+//		List<PostDTO> list = dao.getAllPostbyUserId(1);
 //		for (PostDTO o : list) {
 //			System.out.println(o);
 //		}
@@ -205,4 +235,8 @@ public class PostImpl {
 //			System.out.println(o);
 //		}
 //	}
+
+
+
+
 }

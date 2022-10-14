@@ -177,6 +177,7 @@ public class PostImpl {
 		}
 		return list;
 	}
+<<<<<<< HEAD
 	
 	public List<PostDTO> getAllPostbyUserId(int id) {
 		List<PostDTO> list = new ArrayList<>();
@@ -238,9 +239,25 @@ public class PostImpl {
 //				1,1,6,'0915016124',1)
 	}
 
+=======
+//	private int id;
+//	private String title;
+//	private String description;
+//	private int price;
+//	private int area;
+//	private int count_view;
+//	private String address;
+//	private String latlng;
+//	private String images;
+//	private String user_id;
+//	private String category_id;
+//	private String district_id;
+//	private String approve;
+//	private String create_at;
+>>>>>>> parent of 9de155c (Patch3)
 //	public static void main(String[] args) {
 //		PostImpl dao = new PostImpl();
-//		List<PostDTO> list = dao.getAllPostbyUserId(1);
+//		List<PostDTO> list = dao.getAllPost();
 //		for (PostDTO o : list) {
 //			System.out.println(o);
 //		}
@@ -253,6 +270,7 @@ public class PostImpl {
 //			System.out.println(o);
 //		}
 //	}
+<<<<<<< HEAD
 
 //	public static void main(String[] args) {
 //	PostImpl dao = new PostImpl();
@@ -278,4 +296,6 @@ public class PostImpl {
 //	}
 
 
+=======
+>>>>>>> parent of 9de155c (Patch3)
 }

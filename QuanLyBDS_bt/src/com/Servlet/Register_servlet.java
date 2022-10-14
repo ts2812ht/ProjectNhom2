@@ -75,10 +75,10 @@ public class Register_servlet extends HttpServlet {
             if (usersDAO.kiemtraemail(email)) {
                 request.setAttribute("error", "Email Đã Tồn Tại!,Vui Lòng Sử Dụng Email Khác");
             }
-            if (pass.length() < 8) {
+            if (request.getParameter("pass").length() < 8) {
                 request.setAttribute("error2", "Độ Dài Mật Khẩu Lớn Hơn 8 Ký Tự");
             }
-            if (!repass.equals(pass)) {
+            if (!request.getParameter("repass").equals(request.getParameter("pass"))) {
                 request.setAttribute("error3", "Mật Khẩu Nhập Lại Bị Sai");
             }
             if ( usersDAO.kiemtra(username)) {
@@ -103,7 +103,7 @@ public class Register_servlet extends HttpServlet {
 //            user.setSdt(request.getParameter("phone"));
             user = new UserDTO(name,username,email,pass,phone,"");
             usersDAO.register(user);
-            url = request.getContextPath() +"/Post_servlet";
+            url = "Post_servlet";
         }
         
         RequestDispatcher rd = getServletContext().getRequestDispatcher(url);

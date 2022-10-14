@@ -100,24 +100,6 @@ public class UserImpl {
 		}
 	}
 	
-	//sửa user by Id
-	public void updateUser(int id,String name,String email, String password,String phone,String image) {
-        String query = "UPDATE users\r\n"
-        		+ "SET name = N'"+ name +"', email= ?, password = ?, phone =?,avatar = ?\r\n"
-        		+ "WHERE id = ?;";
-		try {
-			conn = new Jdbc.DBUtil().getSqlConn();
-			ps = conn.prepareStatement(query);
-			ps.setString(1, email);
-			ps.setString(2, password);
-			ps.setString(3, phone);
-			ps.setString(4, image);
-			ps.setInt(5, id);
-			ps.executeUpdate();
-		} catch (SQLException ex) {
-			System.out.println("Loi " + ex.getMessage());
-		}
-	}
 	
 	
 	
@@ -135,14 +117,9 @@ public class UserImpl {
 //	System.out.println(user);
 //	}
 	
-//	public static void main(String[] args) {
-//	UserImpl dao = new UserImpl();
-//	UserDTO user = new UserDTO("Wcaca","ts1","asd","1","asd","");
-//	dao.register(user);
-//	}
-	
-//	public static void main(String[] args) {
-//	UserImpl dao = new UserImpl();
-//	dao.updateUser("5", "Alfred Schmidt", "Frankfurt", "2", "0123456", "nope.jsp");
-//	}
+	public static void main(String[] args) {
+	UserImpl dao = new UserImpl();
+	UserDTO user = new UserDTO("Wcaca","ts1","asd","1","asd","");
+	dao.register(user);
+	}
 }

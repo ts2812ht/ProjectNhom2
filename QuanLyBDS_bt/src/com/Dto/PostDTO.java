@@ -13,10 +13,68 @@ public class PostDTO {
 	private String user_id;
 	private String category_id;
 	private String district_id;
+	private String phuongxa_id;
 	private String approve;
+	private String phone;
 	private String create_at;
-
 	
+	
+	
+	
+	public PostDTO(String title, String description, int price, int area, String address, String images, String user_id,
+			String category_id, String district_id, String phuongxa_id, String phone) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.price = price;
+		this.area = area;
+		this.address = address;
+		this.images = images;
+		this.user_id = user_id;
+		this.category_id = category_id;
+		this.district_id = district_id;
+		this.phuongxa_id = phuongxa_id;
+		this.phone = phone;
+	}
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+
+	public String getPhuongxa_id() {
+		return phuongxa_id;
+	}
+
+
+	public void setPhuongxa_id(String phuongxa_id) {
+		this.phuongxa_id = phuongxa_id;
+	}
+
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+
+	public PostDTO(String title, String description, int price, int area, String address, String images, String user_id,
+			String category_id, String district_id, String phone) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.price = price;
+		this.area = area;
+		this.address = address;
+		this.images = images;
+		this.user_id = user_id;
+		this.category_id = category_id;
+		this.district_id = district_id;
+		this.phone = phone;
+	}
+
+
 	public PostDTO(int id, String title, String description, int price, int area, int count_view, String address,
 			String latlng, String images, String user_id, String category_id, String district_id, String approve,
 			String create_at) {

@@ -3,6 +3,7 @@ package Jdbc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -176,6 +177,7 @@ public class PostImpl {
 		}
 		return list;
 	}
+	
 	public List<PostDTO> getAllPostbyUserId(int id) {
 		List<PostDTO> list = new ArrayList<>();
 		String query = "select * from post where user_id = ?";
@@ -206,20 +208,36 @@ public class PostImpl {
 		}
 		return list;
 	}
-//	private int id;
-//	private String title;
-//	private String description;
-//	private int price;
-//	private int area;
-//	private int count_view;
-//	private String address;
-//	private String latlng;
-//	private String images;
-//	private String user_id;
-//	private String category_id;
-//	private String district_id;
-//	private String approve;
-//	private String create_at;
+	
+	
+	//Tạo post mới
+	public void NewPost(PostDTO post) throws SQLException  {
+		String query = "INSERT INTO post (title , description, price, area,  address, images, \r\n"
+				+ "					user_id, category_id, district_id,phuongxa_id, phone,approve) VALUES\r\n"
+				+ "			(N'"+post.getTitle()+"', N'"+post.getDescription()+"',?,?,N'"+post.getAddress()+"',?,?,?,?,?,?,1)";
+		try {
+			conn = new Jdbc.DBUtil().getSqlConn();
+			ps = conn.prepareStatement(query);
+			ps.setInt(1, post.getPrice());
+			ps.setInt(2, post.getArea());
+			ps.setString(3, post.getImages());
+			ps.setString(4, post.getUser_id());
+			ps.setString(5, post.getCategory_id());
+			ps.setString(6, post.getDistrict_id());
+			ps.setString(7, post.getPhuongxa_id());
+			ps.setString(8, post.getPhone());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+
+//		INSERT INTO post (title , description, price, area, count_view, address, images, 
+//				user_id, category_id, district_id, phone,approve) VALUES
+//		(N'Phòng mới', N'Phòng description',1800,20,0,N'47 Đường Cầu Giấy','images/test1.jpg',
+//				1,1,6,'0915016124',1)
+	}
+
 //	public static void main(String[] args) {
 //		PostImpl dao = new PostImpl();
 //		List<PostDTO> list = dao.getAllPostbyUserId(1);
@@ -236,7 +254,28 @@ public class PostImpl {
 //		}
 //	}
 
-
+//	public static void main(String[] args) {
+//	PostImpl dao = new PostImpl();
+//	PostDTO post = new PostDTO(
+//						"Nôp",		//title
+//						"asd",		//description
+//						20000,		//price
+//						20,			//area
+//						"asd",		//address
+//						"images/test1.jpg",			//images
+//						"1",		//user_id
+//						"1",		//category_id
+//						"1",			//district_id
+//						"",			//phuongxa_id
+//						"0123456");			//phone
+//								
+//	try {
+//		dao.NewPost(post);
+//	} catch (SQLException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
+//	}
 
 
 }

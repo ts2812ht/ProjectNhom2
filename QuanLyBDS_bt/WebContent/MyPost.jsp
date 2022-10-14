@@ -21,6 +21,10 @@
 				<p align="justify">${o.description}
 					<a href="#" class="continue">Đọc tiếp ...</a>
 				</p>
+				<div>
+				<a href="#">Sửa</a>
+				<a href="#">Xoá</a>
+				</div>
 				<hr>
 			</div>
 		</c:forEach>

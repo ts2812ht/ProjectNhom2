@@ -12,7 +12,7 @@
 		String isLoginUrl = "LoginForm.jsp";
 		if (session.getAttribute("user") != null) {
         	user = (UserDTO) session.getAttribute("user");
-        	isLoginUrl = "#";
+        	isLoginUrl = "NewPost.jsp";
     	}%>
 	<% if (user != null) {%>
    	<p>Xin chào </p>

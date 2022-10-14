@@ -8,8 +8,8 @@
 
 	<div>Tìm kiếm</div>
 	<form action="SearchPost" method="post">
-		<input type="text" name="Category_search" placeholder="Category"> 
-		<input type="text" name="District_search" placeholder="Tỉnh"><br> 
+		<input type="text" name="Category_search" placeholder="Category"> <br> 
+		<input type="text" name="District_search" placeholder="Quận/Huyện"><input type="text" name="Phuongxa_search" placeholder="Phường/xã"><br> 
 		<input type="text" name="PriceLow_search" placeholder="Giá từ"> 
 		<input type="text" name="PriceHigh_search" placeholder="Đến"><br> 
 		<input type="text" name="AreaLow_search" placeholder="Diện tích từ">
